@@ -74,8 +74,9 @@ def _parse_field_name_and_index(field_name):
 def get_plot_fields(node, topic_name):
     topics = node.get_topic_names_and_types()
     real_topic = None
+
     for name, topic_types in topics:
-        if name == topic_name[:len(name)]:
+        if name == '/' + topic_name.split('/')[1]:
             real_topic = name
             topic_type_str = topic_types[0] if topic_types else None
             break
